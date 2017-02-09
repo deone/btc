@@ -25,7 +25,7 @@ SECRET_KEY = '87hlb-+@)4t6o61^b$)_t((cd9y88vvb6j)at4z_frhre)v6nj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['btc-deone.c9users.io']
 
 
 # Application definition
