@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Account{% endblock %}
+
+{% block app_body %}
+<!-- <div class="row">
+  <div class="mid width-50 app-body">
+    <form action="" method="post" class="form-horizontal account-form">
+
+      <div class="page-header">
+        <h1>Create Account</h1>
+      </div>
+
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="form-group">
+        {{ form.name.errors }}
+        <label for="{{ form.name.id_for_label }}" class="col-sm-3 control-label">{{ form.name.label }}</label>
+        <div class="col-sm-9">
+          {{ form.name }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        {{ form.company_name.errors }}
+        <label for="{{ form.company_name.id_for_label }}" class="col-sm-3 control-label">{{ form.company_name.label }}</label>
+        <div class="col-sm-9">
+          {{ form.company_name }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        {{ form.email.errors }}
+        <label for="{{ form.email.id_for_label }}" class="col-sm-3 control-label">{{ form.email.label }}</label>
+        <div class="col-sm-9">
+          {{ form.email }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        {{ form.password.errors }}
+        <label for="{{ form.password.id_for_label }}" class="col-sm-3 control-label">{{ form.password.label }}</label>
+        <div class="col-sm-9">
+          {{ form.password }}
+          <span class="help-text">{{ form.password.help_text }}</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        {{ form.confirm_password.errors }}
+        <label for="{{ form.confirm_password.id_for_label }}" class="col-sm-3 control-label">{{ form.confirm_password.label }}</label>
+        <div class="col-sm-9">
+          {{ form.confirm_password }}
+          <span class="help-text">{{ form.confirm_password.help_text }}</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-7">
+          <button type="submit" class="btn btn-primary">Create Account</button>
+          <a class="btn btn-default" href="#">Log In</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+{% endblock %}
