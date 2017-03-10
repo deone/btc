@@ -1,69 +1,111 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
-    <title>BTC &mdash; {% block title %}{% endblock %}</title>
+    <title>Nava</title>
     {% load staticfiles %}
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="Traveling HTML5 Template" />
+    <meta name="author" content="Design Hooks" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:400,700" rel="stylesheet" />
+    <link href="{% static 'img/favicon.png' %}" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" href="{% static 'css/screen.css' %}">
   </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#btc-navbar-collapse" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand brand" href="#">
-            <p>BTC</p>
-          </a>
-        </div>
 
-        <div class="collapse navbar-collapse" id="btc-navbar-collapse">
+  <body class="home" id="page">
+    <!-- Header -->
+    <header class="main-header">
+       <div class="container">
+          <div class="header-content">
+             <a href="index.html">
+                <img src="{% static 'img/site-identity.png' %}" alt="site identity" />
+             </a>
+  
+             <nav class="site-nav">
+                <a href="#" class="btn btn-outlined">Sign up</a>
+                <a href="#" class="btn btn-outlined">Sign in</a>
+             </nav>
+          </div>
+       </div>
+    </header>
 
-          {% block org_header %}
-          {% endblock %}
-
-          <ul class="nav navbar-nav navbar-right">
-            {% if user.is_authenticated %}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                  {{ user.get_full_name }} <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="{% url 'logout' %}">
-                      <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            {% else %}
-              <li><a href="#">Login</a></li>
-            {% endif %}
-          </ul>
-        </div>
-
-      </div>
-    </nav>
-
-    <div class="container-fluid">
-      {% block app_body %}
-      {% endblock %}
+    <!-- Main Content -->
+    <div class="content-box">
+    {% block app %}
+    {% endblock %}
     </div>
 
-    <footer class="footer">
-      <p>&copy; 2017 BTC.</p>
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="widget widget_links">
+              <h5 class="widget-title">Top Locations</h5>
+              <ul>
+                <li><a href="#">Lorem impsum dolor</a></li>
+                <li><a href="#">Sit amet consectetur</a></li>
+                <li><a href="#">Adipisicing elit</a></li>
+                <li><a href="#">Eiusmod tempor</a></li>
+                <li><a href="#">incididunt ut labore</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <div class="col-md-5">
+            <div class="widget widget_links">
+              <h5 class="widget-title">Featured Boats</h5>
+              <ul>
+                <li><a href="#">Lorem impsum dolor</a></li>
+                <li><a href="#">Sit amet consectetur</a></li>
+                <li><a href="#">Adipisicing elit</a></li>
+                <li><a href="#">Eiusmod tempor</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <div class="col-md-9">
+            <div class="widget widget_social">
+              <h5 class="widget-title">Subscribe to our newsletter</h5>
+              <form class="subscribe-form">
+                <div class="input-line">
+                   <input type="text" name="subscribe-email" value="" placeholder="Your email address" />
+                </div>
+                <button type="button" name="subscribe-submit" class="btn btn-special no-icon">Subscribe</button>
+              </form>
+          
+              <ul class="clean-list social-block">
+                <li>
+                   <a href="#"><i class="icon-facebook"></i></a>
+                </li>
+                <li>
+                   <a href="#"><i class="icon-twitter"></i></a>
+                </li>
+                <li>
+                   <a href="#"><i class="icon-google-plus"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+  
+          <div class="col-md-5">
+            <div class="widget widget_links">
+              <h5 class="widget-title">Contact us</h5>
+              <ul>
+                <li><a href="#">Lorem impsum dolor</a></li>
+                <li><a href="#">Sit amet consectetur</a></li>
+                <li><a href="#">Adipisicing elit</a></li>
+                <li><a href="#">Eiusmod tempor</a></li>
+                <li><a href="#">incididunt ut labore</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
+  
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/functions.js' %}"></script>
   </body>
 </html>
