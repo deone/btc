@@ -5,14 +5,14 @@ from .forms import CreateAccountForm
 
 class HomePageView(TemplateView):
 
-    template_name = 'index.html'
+    template_name = 'accounts/index.html'
 
 def create(request):
-    if request.method == 'POST':
+    """ if request.method == 'POST':
         form = CreateAccountForm(request.POST)
         if form.is_valid():
             form.save()
     else:
-        form = CreateAccountForm()
+        form = CreateAccountForm() """
 
-    return render(request, 'accounts/create.html', {'form': form})
+    return render(request, 'accounts/create.html')

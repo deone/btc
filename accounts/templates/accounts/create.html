@@ -1,62 +1,34 @@
 {% extends 'base.html' %}
 
-{% block title %}Create Account{% endblock %}
+{% load static %}
 
-{% block app_body %}
-<div class="row">
-  <div class="mid width-50 app-body">
-    <form action="" method="post" class="form-horizontal account-form">
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra.css' %}">
+{% endblock %}
 
-      <div class="page-header">
-        <h1>Create Account</h1>
+{% block signup %}{% endblock %}
+  
+{% block app %}
+<!-- Hero Section -->
+<section class="section">
+  <div class="hero-box"></div>
+</section>
+
+<!-- Destinations Section -->
+<section class="section">
+  <!-- Title -->
+  <div class="section-title">
+    <div class="container">
+      <h2 class="title">Create Account</h2>
+      <div class="row">
+        <form class="destinations-form">
+          <div class="input-line">
+            <input type="text" name="destination" value="" class="form-input check-value" placeholder="WHAT IS YOUR DESTINATION, SAILOR?" />
+            <button type="button" name="destination-submit" class="form-submit btn btn-special">Find a boat</button>
+          </div>
+        </form>
       </div>
-
-      {% csrf_token %}
-      {{ form.non_field_errors }}
-
-      <div class="form-group">
-        {{ form.full_name.errors }}
-        <label for="{{ form.full_name.id_for_label }}" class="col-sm-3 control-label">{{ form.full_name.label }}</label>
-        <div class="col-sm-9">
-          {{ form.full_name }}
-          <span class="help-text">{{ form.full_name.help_text }}</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        {{ form.email.errors }}
-        <label for="{{ form.email.id_for_label }}" class="col-sm-3 control-label">{{ form.email.label }}</label>
-        <div class="col-sm-9">
-          {{ form.email }}
-          <span class="help-text">{{ form.email.help_text }}</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        {{ form.password.errors }}
-        <label for="{{ form.password.id_for_label }}" class="col-sm-3 control-label">{{ form.password.label }}</label>
-        <div class="col-sm-9">
-          {{ form.password }}
-          <span class="help-text">{{ form.password.help_text }}</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        {{ form.confirm_password.errors }}
-        <label for="{{ form.confirm_password.id_for_label }}" class="col-sm-3 control-label">{{ form.confirm_password.label }}</label>
-        <div class="col-sm-9">
-          {{ form.confirm_password }}
-          <span class="help-text">{{ form.confirm_password.help_text }}</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-7">
-          <button type="submit" class="btn btn-primary">Create Account</button>
-          <a class="btn btn-default" href="#">Log In</a>
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
-</div>
+</section>
 {% endblock %}

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Nava</title>
-    {% load staticfiles %}
+    {% load static %}
     <meta charset="utf-8">
     <meta name="description" content="Traveling HTML5 Template" />
     <meta name="author" content="Design Hooks" />
@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:400,700" rel="stylesheet" />
     <link href="{% static 'img/favicon.png' %}" type="image/x-icon" rel="shortcut icon" />
     <link rel="stylesheet" href="{% static 'css/screen.css' %}">
+    {% block extra_css %}{% endblock %}
   </head>
 
   <body class="home" id="page">
@@ -17,13 +18,17 @@
     <header class="main-header">
        <div class="container">
           <div class="header-content">
-             <a href="index.html">
+             <a href="{% url 'home' %}">
                 <img src="{% static 'img/site-identity.png' %}" alt="site identity" />
              </a>
   
              <nav class="site-nav">
-                <a href="#" class="btn btn-outlined">Sign up</a>
-                <a href="#" class="btn btn-outlined">Sign in</a>
+                {% block signup %}
+                  <a href="{% url 'accounts:create' %}" class="btn btn-outlined">Sign up</a>
+                {% endblock %}
+                {% block signin %}
+                  <a href="#" class="btn btn-outlined">Sign in</a>
+                {% endblock %}
              </nav>
           </div>
        </div>
