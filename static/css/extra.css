@@ -1,3 +1,8 @@
 .hero-box {
     padding: 55px 0;
 }
+
+.destinations-form .input-line .form-input {
+    border-width: 1px;
+    border-style: solid;
+}

@@ -15,4 +15,4 @@ def create(request):
     else:
         form = CreateAccountForm() """
 
-    return render(request, 'accounts/create.html')
+    return render(request, 'accounts/signup.html')
