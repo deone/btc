@@ -2,6 +2,14 @@ from django import forms
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
+"""
+Name [Firstname, Lastname]
+Email
+Password
+Confirm Password
+Bitcoin Wallet Address
+"""
+
 class CreateAccountForm(forms.Form):
     full_name = forms.CharField(label=_('Full Name'), widget=forms.TextInput(attrs={
         'class': 'form-control',
