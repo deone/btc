@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="{% static 'css/extra.css' %}">
 {% endblock %}
 
+{% block extra_js %}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
 {% block signup_btn %}{% endblock %}
   
 {% block app %}
@@ -53,6 +57,8 @@
           <input type="text" id="wallet-address" class="form-control form-input" placeholder="Wallet Address">
           <p class="help-block">Ensure this is correct. We won't be responsible for errors caused by an incorrect address.</p>
         </div>
+
+        <div class="g-recaptcha" data-sitekey="6LdCjBkUAAAAAKRTIjQ0m1zZD6RnxvzQ4kIWT-OZ"></div>
 
         <div class="checkbox">
           <label>
