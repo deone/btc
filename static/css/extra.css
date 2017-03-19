@@ -2,7 +2,29 @@
     padding: 55px 0;
 }
 
-.destinations-form .input-line .form-input {
-    border-width: 1px;
-    border-style: solid;
+form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.errorlist {
+    list-style: none;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    height: 60px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    border: 1px solid;
+    border-radius: 5px;
+    color: #2c3e50;
+    padding-left: 20px;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  background: #fafafa;
 }

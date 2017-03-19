@@ -2442,7 +2442,7 @@ textarea {
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
   -webkit-appearance: none;
-  border-radius: 0;
+  /* border-radius: 0; */
 }
 
 input:focus,
