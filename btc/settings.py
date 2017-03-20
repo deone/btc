@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['btc-deone.c9users.io']
 # Application definition
 
 INSTALLED_APPS = [
+    'nocaptcha_recaptcha',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -133,6 +134,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-RECAPTCHA_SITE_KEY = '6LdCjBkUAAAAAKRTIjQ0m1zZD6RnxvzQ4kIWT-OZ'
+NORECAPTCHA_SITE_KEY = '6LdCjBkUAAAAAKRTIjQ0m1zZD6RnxvzQ4kIWT-OZ'
 
-RECAPTCHA_SECRET_KEY = '6LdCjBkUAAAAACgz_2SEUn8YKnlDFrcwLVLm92dQ'
+NORECAPTCHA_SECRET_KEY = '6LdCjBkUAAAAACgz_2SEUn8YKnlDFrcwLVLm92dQ'
+
+NORECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'

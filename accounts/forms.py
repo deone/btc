@@ -2,6 +2,8 @@ from django import forms
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
+from nocaptcha_recaptcha.fields import NoReCaptchaField
+
 class CreateAccountForm(forms.Form):
     full_name = forms.CharField(label=_('Full Name'), widget=forms.TextInput(attrs={
         'class': 'form-control',
@@ -19,13 +21,14 @@ class CreateAccountForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'Type password again'
     }))
-    wallet_address = forms.CharField(label=_('Full Name'), widget=forms.TextInput(attrs={
+    wallet_address = forms.CharField(label=_('Wallet Address'), widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': 'Wallet Address'
     }), help_text="Ensure this is correct. We won't be responsible for errors caused by an incorrect address.")
+    captcha = NoReCaptchaField()
     agree_to_terms = forms.BooleanField()
 
-    def clean_name(self):
+    """ def clean_name(self):
         cleaned_data = super(CreateAccountForm, self).clean()
         name = cleaned_data.get('name')
 
@@ -41,7 +44,7 @@ class CreateAccountForm(forms.Form):
 
         if password and confirm_password:
             if password != confirm_password:
-                raise forms.ValidationError(_('Passwords do not match'), code='password_mismatch')
+                raise forms.ValidationError(_('Passwords do not match'), code='password_mismatch') """
 
     def save(self):
-        pass
+        print self.cleaned_data
