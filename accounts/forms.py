@@ -2,22 +2,14 @@ from django import forms
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-"""
-Name [Firstname, Lastname]
-Email
-Password
-Confirm Password
-Bitcoin Wallet Address
-"""
-
 class CreateAccountForm(forms.Form):
     full_name = forms.CharField(label=_('Full Name'), widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'placeholder': 'First name and last name'
+        'placeholder': 'First Name Last Name'
     }))
     email = forms.EmailField(label=_('Email'), widget=forms.EmailInput(attrs={
         'class': 'form-control',
-        'placeholder': 'email address'
+        'placeholder': 'Email address'
     }))
     password = forms.CharField(label=_('Password'), widget=forms.PasswordInput(attrs={
         'class': 'form-control',
@@ -27,6 +19,11 @@ class CreateAccountForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'Type password again'
     }))
+    wallet_address = forms.CharField(label=_('Full Name'), widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Wallet Address'
+    }), help_text="Ensure this is correct. We won't be responsible for errors caused by an incorrect address.")
+    agree_to_terms = forms.BooleanField()
 
     def clean_name(self):
         cleaned_data = super(CreateAccountForm, self).clean()
@@ -36,18 +33,6 @@ class CreateAccountForm(forms.Form):
             raise forms.ValidationError(_('Enter first and last names'), code='incomplete_name')
 
         return name
-
-    def clean_email(self):
-        cleaned_data = super(CreateAccountForm, self).clean()
-        email = cleaned_data.get('email')
-
-        # Make an API call here
-        response = requests.get(settings.ACCOUNT_GET_URL, params={'email': email})
-
-        if response.status_code == 200:
-            raise forms.ValidationError(_('User already exists'), code='user_exists')
-
-        return email
 
     def clean(self):
         cleaned_data = super(CreateAccountForm, self).clean()

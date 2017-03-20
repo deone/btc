@@ -8,11 +8,11 @@ class HomePageView(TemplateView):
     template_name = 'accounts/index.html'
 
 def create(request):
-    """ if request.method == 'POST':
+    if request.method == 'POST':
         form = CreateAccountForm(request.POST)
         if form.is_valid():
             form.save()
     else:
-        form = CreateAccountForm() """
+        form = CreateAccountForm(label_suffix='')
 
-    return render(request, 'accounts/signup.html')
+    return render(request, 'accounts/signup.html', {'form': form})

@@ -32,43 +32,47 @@
   <div class="container">
     <div class="row">
       <form>
+
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
         <div class="form-group">
-          <label for="full-name">Full Name</label>
-          <ul class="errorlist"><li>This field is required.</li></ul>
-          <input type="text" id="full-name" class="form-control" placeholder="First Name Last Name">
+          {{ form.full_name.label_tag }}
+          {{ form.full_name.errors }}
+          {{ form.full_name }}
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
-          <ul class="errorlist"><li>This field is required.</li></ul>
-          <input type="text" id="email" class="form-control" placeholder="Email address">
+          {{ form.email.label_tag }}
+          {{ form.email.errors }}
+          {{ form.email }}
         </div>
 
         <div class="form-group">
-          <label for="password">Password</label>
-          <ul class="errorlist"><li>This field is required.</li></ul>
-          <input type="password" id="password" class="form-control" placeholder="Password">
+          {{ form.password.label_tag }}
+          {{ form.password.errors }}
+          {{ form.password }}
         </div>
 
         <div class="form-group">
-          <label for="confirm-password">Confirm Password</label>
-          <ul class="errorlist"><li>This field is required.</li></ul>
-          <input type="password" id="confirm-password" class="form-control" placeholder="Confirm Password">
+          {{ form.confirm_password.label_tag }}
+          {{ form.confirm_password.errors }}
+          {{ form.confirm_password }}
         </div>
 
         <div class="form-group">
-          <label for="wallet-address">Wallet address</label>
-          <ul class="errorlist"><li>This field is required.</li></ul>
-          <input type="text" id="wallet-address" class="form-control" placeholder="Wallet Address">
-          <p class="help-block">Ensure this is correct. We won't be responsible for errors caused by an incorrect address.</p>
+          {{ form.wallet_address.label_tag }}
+          {{ form.wallet_address.errors }}
+          {{ form.wallet_address }}
+          <p class="help-block">{{ form.wallet_address.help_text }}</p>
         </div>
 
         <div class="g-recaptcha" data-sitekey="6LdCjBkUAAAAAKRTIjQ0m1zZD6RnxvzQ4kIWT-OZ"></div>
 
         <div class="checkbox">
           <label>
-            <ul class="errorlist"><li>This field is required.</li></ul>
-            <input type="checkbox"> I agree with these <a href=""><strong>terms of service</strong></a>.
+            {{ form.agree_to_terms.errors }}
+            {{ form.agree_to_terms }}I agree with these <a href=""><strong>terms of service</strong></a>.
           </label>
         </div>
 
