@@ -3,7 +3,7 @@
 }
 
 form {
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -16,6 +16,7 @@ form {
     list-style: none;
     text-align: right;
     margin-bottom: 0;
+    color: red;
 }
 
 form input[type="text"],

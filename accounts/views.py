@@ -9,9 +9,12 @@ class HomePageView(TemplateView):
 
 def create(request):
     if request.method == 'POST':
-        form = CreateAccountForm(request.POST)
+        form = CreateAccountForm(request.POST, label_suffix='')
         if form.is_valid():
             form.save()
+            # send mail
+            # log user in
+            # redirect
     else:
         form = CreateAccountForm(label_suffix='')
 
