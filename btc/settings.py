@@ -136,7 +136,13 @@ STATICFILES_DIRS = (
 
 # Google Recaptcha
 NORECAPTCHA_SITE_KEY = '6LdCjBkUAAAAAKRTIjQ0m1zZD6RnxvzQ4kIWT-OZ'
-
 NORECAPTCHA_SECRET_KEY = '6LdCjBkUAAAAACgz_2SEUn8YKnlDFrcwLVLm92dQ'
-
 NORECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
+
+# Email settings
+DEFAULT_FROM_EMAIL = 'BTC<incisiaappmailer@gmail.com>'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'incisiaappmailer@gmail.com'
+EMAIL_HOST_PASSWORD = '#$gh78@%'
+EMAIL_USE_TLS = True
