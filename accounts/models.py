@@ -14,10 +14,8 @@ class Account(models.Model):
 @receiver(post_save, sender=User)
 def send_welcome_email(sender, **kwargs):
     user = kwargs['instance']
-    update_fields = kwargs['update_fields']
 
-    # Send email after user logs in and last_login attribute is updated.
-    if update_fields is not None:
+    if kwargs['created']:
         send_mail(
             'Subject here',
             'Here is the message.',
