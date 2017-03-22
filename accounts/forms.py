@@ -17,6 +17,10 @@ class SignInForm(AuthenticationForm):
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
     captcha = NoReCaptchaField()
 
+    def __init__(self, *args, **kwargs):
+        super(SignInForm, self).__init__(*args, **kwargs)
+        self.label_suffix = ''
+
 class CreateAccountForm(forms.Form):
     full_name = forms.CharField(label=_('Full Name'), widget=forms.TextInput(attrs={
         'class': 'form-control',
