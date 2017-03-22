@@ -16,6 +16,7 @@
 
   <body class="home" id="page">
     <!-- Header -->
+    {% block header %}
     <header class="main-header">
        <div class="container">
           <div class="header-content">
@@ -25,15 +26,16 @@
   
              <nav class="site-nav">
                 {% block signup_btn %}
-                  <a href="{% url 'accounts:create' %}" class="btn btn-outlined">Sign up</a>
+                  <a href="{% url 'accounts:signup' %}" class="btn btn-outlined">Sign up</a>
                 {% endblock %}
                 {% block signin_btn %}
-                  <a href="#" class="btn btn-outlined">Sign in</a>
+                  <a href="{% url 'accounts:signin' %}" class="btn btn-outlined">Sign in</a>
                 {% endblock %}
              </nav>
           </div>
        </div>
     </header>
+    {% endblock %}
 
     <!-- Main Content -->
     <div class="content-box">

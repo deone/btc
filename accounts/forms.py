@@ -2,12 +2,20 @@ from django import forms
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.forms import AuthenticationForm
 
 from .models import Account
 
 from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 import requests
+
+class SignInForm(AuthenticationForm):
+    username = forms.EmailField(label=_('Email'), max_length=254,
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email address'}))
+    password = forms.CharField(label=_('Password'),
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+    captcha = NoReCaptchaField()
 
 class CreateAccountForm(forms.Form):
     full_name = forms.CharField(label=_('Full Name'), widget=forms.TextInput(attrs={
