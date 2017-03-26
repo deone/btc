@@ -1,6 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordResetForm
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -9,6 +10,9 @@ from .models import Account
 from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 import requests
+
+class PswdResetForm(PasswordResetForm):
+    email = forms.EmailField(label=_('Email'), max_length=50, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
 class SignInForm(AuthenticationForm):
     username = forms.EmailField(label=_('Email'), max_length=254,
