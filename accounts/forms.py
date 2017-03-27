@@ -1,7 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -10,6 +10,14 @@ from .models import Account
 from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 import requests
+
+class SetPswdForm(SetPasswordForm):
+    new_password1 = forms.CharField(label=_('New Password'), widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password2 = forms.CharField(label=_('Confirm Password'), widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+    def __init__(self, *args, **kwargs):
+        super(SetPswdForm, self).__init__(*args, **kwargs)
+        self.label_suffix = ''
 
 class PswdResetForm(PasswordResetForm):
     email = forms.EmailField(label=_('Email'), max_length=50, widget=forms.EmailInput(attrs={'class': 'form-control'}))
