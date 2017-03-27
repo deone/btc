@@ -14,6 +14,10 @@ import requests
 class PswdResetForm(PasswordResetForm):
     email = forms.EmailField(label=_('Email'), max_length=50, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
+    def __init__(self, *args, **kwargs):
+        super(PswdResetForm, self).__init__(*args, **kwargs)
+        self.label_suffix = ''
+
 class SignInForm(AuthenticationForm):
     username = forms.EmailField(label=_('Email'), max_length=254,
         widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email address'}))
