@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% load i18n static %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/extra.css' %}">
@@ -23,8 +23,8 @@
   <!-- Title -->
   <div class="section-title">
     <div class="container">
-      <h2 class="title">Sign Up</h2>
-      <p class="sub-title">It takes less than 30 seconds!</p>
+      <h2 class="title">{% trans "Sign Up" %}</h2>
+      <p class="sub-title">{% trans "It takes less than 30 seconds!" %}</p>
     </div>
   </div>
 
@@ -75,11 +75,11 @@
         <div class="checkbox">
           <label>
             {{ form.agree_to_terms.errors }}
-            {{ form.agree_to_terms }}I agree with these <a href=""><strong>terms of service</strong></a>.
+            {{ form.agree_to_terms }}{% trans "I agree with these " %}<a href=""><strong>{% trans "terms of service" %}</strong></a>.
           </label>
         </div>
 
-        <button type="submit" class="btn btn-special no-icon">Submit</button>
+        <input type="submit" class="btn btn-special no-icon" value="{% trans 'Submit' %}">
       </form>
     </div>
   </div>

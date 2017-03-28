@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% load i18n static %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/extra.css' %}">
@@ -23,7 +23,7 @@
   <!-- Title -->
   <div class="section-title">
     <div class="container">
-      <h2 class="title">Sign In</h2>
+      <h2 class="title">{% trans "Sign In" %}</h2>
     </div>
   </div>
 
@@ -52,8 +52,8 @@
           {{ form.captcha }}
         </div>
 
-        <button type="submit" class="btn btn-special no-icon">Submit</button>
-        <p><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
+        <input type="submit" class="btn btn-special no-icon" value="{% trans 'Submit' %}">
+        <p><a href="{% url 'password_reset' %}">{% trans "Forgot Password?" %}</a></p>
       </form>
     </div>
   </div>
