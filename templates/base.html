@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nava</title>
-    {% load static %}
+    <title>BTC &ndash; {% block pagetitle %}Home{% endblock %}</title>
+    {% load i18n static %}
     <meta charset="utf-8">
     <meta name="description" content="Traveling HTML5 Template" />
     <meta name="author" content="Design Hooks" />
@@ -26,10 +26,10 @@
   
              <nav class="site-nav">
                 {% block signup_btn %}
-                  <a href="{% url 'signup' %}" class="btn btn-outlined">Sign up</a>
+                  <a href="{% url 'signup' %}" class="btn btn-outlined">{% trans "Sign up" %}</a>
                 {% endblock %}
                 {% block signin_btn %}
-                  <a href="{% url 'signin' %}" class="btn btn-outlined">Sign in</a>
+                  <a href="{% url 'signin' %}" class="btn btn-outlined">{% trans "Sign in" %}</a>
                 {% endblock %}
              </nav>
           </div>
