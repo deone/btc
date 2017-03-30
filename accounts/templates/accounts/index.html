@@ -1,5 +1,5 @@
 {% load i18n %}
 
-{% blocktrans %}Welcome {{ user.get_full_name }}!{% endblocktrans %}
+{% trans "Welcome " %}{{ user.get_full_name }}!
 
 <a href="{% url 'signout' %}">{% trans "Sign Out" %}</a>

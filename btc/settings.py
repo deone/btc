@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['btc-deone.c9users.io']
 # Application definition
 
 INSTALLED_APPS = [
+    'core.apps.CoreConfig',
     'nocaptcha_recaptcha',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
