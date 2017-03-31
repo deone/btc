@@ -11,7 +11,7 @@ class Plan(models.Model):
     percentage_return = models.IntegerField()
 
     def __str__(self):
-        return '%s %s' % (self.name, str(self.min_deposit))
+        return '%s - %s BTC' % (self.name, str(self.min_deposit))
 
 class Investment(models.Model):
     user = models.ForeignKey(User)
