@@ -3,7 +3,7 @@
 {% load i18n static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/pricing.css' %}">
+<link rel="stylesheet" href="{% static 'css/plans.css' %}">
 {% endblock %}
 
 {% block header %}
@@ -20,34 +20,15 @@
       <a class="navbar-brand" href="#">Brand</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.get_full_name }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">{% trans "Investment Plans" %}</a></li>
+            <li><a href="#">{% trans "My Investments" %}</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="{% url 'signout' %}">{% trans "Sign Out" %}</a></li>
           </ul>
         </li>
       </ul>
@@ -57,35 +38,100 @@
 {% endblock %}
 
 {% block app %}
-<!-- Hero Section -->
 <section class="section">
-  <div class="container">
-    {% trans "Welcome " %}{{ user.get_full_name }}!
-    <a href="{% url 'signout' %}">{% trans "Sign Out" %}</a>
-    <div class="pricing">
-      <div class="[ price-option price-option--low ]">
-        <div class="price-option__detail">
-          <span class="price-option__cost">$0</span>
-          <span class="price-option__type">Freeuser</span>
-        </div>
-        <a href="#" class="price-option__purchase">Get</a>
-      </div>
-      <div class="[ price-option price-option--mid ]">
-        <div class="price-option__detail">
-          <span class="price-option__cost">$20</span>
-          <span class="price-option__type">Poweruser</span>
-        </div>
-        <a href="#" class="price-option__purchase">Buy</a>
-      </div>
-      <div class="[ price-option price-option--high ]">
-        <div class="price-option__detail">
-          <span class="price-option__cost">$40</span>
-          <span class="price-option__type">Superuser</span>
-        </div>
-        <a href="#" class="price-option__purchase">Buy</a>
-      </div>
+  <!-- Title -->
+  <div class="section-title">
+    <div class="container">
+      <h2 class="title">{% trans "Our Investment Plans" %}</h2>
+      <p class="sub-title">{% trans "Choose the plan that's best for you!" %}</p>
     </div>
   </div>
+</section>
+
+<section class="container">
+  <div class="row white">
+	  <div class="block">
+			<div class="col-md-6">
+				<ul class="pricing p-green">
+					<li>
+						<img src="http://bread.pp.ua/n/settings_g.svg" alt="">
+						<big>Start</big>
+					</li>
+					<li>Responsive Design</li>
+					<li>Color Customization</li>
+					<li>HTML5 & CSS3</li>
+					<li>Styled elements</li>
+					<li>
+						<h3>$199</h3>
+						<span>per month</span>
+					</li>
+					<li>
+						<button>Join Now</button>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-md-6">
+				<ul class="pricing p-yel">
+					<li>
+						<img src="http://bread.pp.ua/n/settings_y.svg" alt="">
+						<big>Good</big>
+					</li>
+					<li>Responsive Design</li>
+					<li>Color Customization</li>
+					<li>HTML5 & CSS3</li>
+					<li>Styled elements</li>
+					<li>
+						<h3>$299</h3>
+						<span>per month</span>
+					</li>
+					<li>
+						<button>Join Now</button>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-md-6">
+				<ul class="pricing p-red">
+					<li>
+						<img src="http://bread.pp.ua/n/settings_r.svg" alt="">
+						<big>Ultima</big>
+					</li>
+					<li>Responsive Design</li>
+					<li>Color Customization</li>
+					<li>HTML5 & CSS3</li>
+					<li>Styled elements</li>
+					<li>
+						<h3>$399</h3>
+						<span>per month</span>
+					</li>
+					<li>
+						<button>Join Now</button>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-md-6">
+				<ul class="pricing p-blue">
+					<li>
+						<img src="http://bread.pp.ua/n/settings_b.svg" alt="">
+						<big>Vip</big>
+					</li>
+					<li>Responsive Design</li>
+					<li>Color Customization</li>
+					<li>HTML5 & CSS3</li>
+					<li>Styled elements</li>
+					<li>
+						<h3>$799</h3>
+						<span>per month</span>
+					</li>
+					<li>
+						<button>Join Now</button>
+					</li>
+				</ul>
+			</div>
+		</div><!-- /block -->
+	</div><!-- /row -->
 </section>
 {% endblock %}
 
