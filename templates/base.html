@@ -73,18 +73,9 @@
           </div>
   
           <div class="col-md-9">
-            <div class="widget widget_social">
-              <ul class="clean-list social-block">
-                <li>
-                   <a href="#"><i class="icon-facebook"></i></a>
-                </li>
-                <li>
-                   <a href="#"><i class="icon-twitter"></i></a>
-                </li>
-                <li>
-                   <a href="#"><i class="icon-google-plus"></i></a>
-                </li>
-              </ul>
+            <div class="widget widget_links">
+              <h5 class="widget-title">{% trans "1 BTC EQUALS" %}</h5>
+              <div class="btcwdgt-price" bw-cur="usd" bw-theme="light"></div>
             </div>
           </div>
   
@@ -107,6 +98,15 @@
     <!-- Scripts -->
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/functions.js' %}"></script>
+    <script>
+      (function(b,i,t,C,O,I,N) {
+        window.addEventListener('load',function() {
+          if(b.getElementById(C))return;
+          I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+          I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+        },false)
+      })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
+    </script>
     {% block extra_js %}{% endblock %}
   </body>
 </html>

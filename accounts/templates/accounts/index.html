@@ -3,7 +3,9 @@
 {% load i18n static %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/extra.css' %}">
 <link rel="stylesheet" href="{% static 'css/plans.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 {% endblock %}
 
@@ -49,7 +51,7 @@
   </div>
 
   <div class="container">
-    <div class="row white">
+    <div class="row">
       <div class="block">
         <div class="col-md-8">
           <ul class="pricing p-green">
