@@ -3,10 +3,10 @@
 {% load i18n static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/extra.css' %}">
-<link rel="stylesheet" href="{% static 'css/plans.css' %}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'css/extra.css' %}">
+<link rel="stylesheet" href="{% static 'css/plans.css' %}">
 {% endblock %}
 
 {% block header %}
@@ -53,55 +53,24 @@
   <div class="container">
     <div class="row">
       <div class="block">
-        <div class="col-md-8">
-          <ul class="pricing p-green">
-            <li>
-              <big>Starter</big>
-            </li>
-            <li>Period - <strong>15 days</strong></li>
-            <li>Total Returns - <strong>200%</strong></li>
-            <li>
-              <h3><i class="fa fa-btc"></i>0.2</h3>
-              <span>minimum deposit</span>
-            </li>
-            <li>
-              <button>Invest Now</button>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-md-8">
-          <ul class="pricing p-yel">
-            <li>
-              <big>Deluxe</big>
-            </li>
-            <li>Period - <strong>10 days</strong></li>
-            <li>Total Returns - <strong>220%</strong></li>
-            <li>
-              <h3><i class="fa fa-btc"></i>1</h3>
-              <span>minimum deposit</span>
-            </li>
-            <li>
-              <button>Invest Now</button>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-md-8">
-          <ul class="pricing p-red">
-            <li>
-              <big>VIP</big>
-            </li>
-            <li>Period - <strong>7 days</strong></li>
-            <li>Total Returns - <strong>250%</strong></li>
-            <li>
-              <h3><i class="fa fa-btc"></i>5</h3>
-              <span>minimum deposit</span>
-            </li>
-            <li>
-              <button>Invest Now</button>
-            </li>
-          </ul>
+        {% for plan in plans %}
+          <div class="col-md-8">
+            <ul class="pricing {% ifequal plan.name 'starter' %}p-green{% endifequal %} {% ifequal plan.name 'deluxe' %}p-yel{% endifequal %} {% ifequal plan.name 'vip' %}p-red{% endifequal %}">
+              <li>
+                <big {% ifequal plan.name 'vip' %}style="text-transform: uppercase"{% endifequal %}>{{ plan.name }}</big>
+              </li>
+              <li>Period - <strong>{{ plan.period }}</strong></li>
+              <li>{% trans "Total Returns - " %}<strong>{{ plan.percentage_return }}%</strong></li>
+              <li>
+                <h3><i class="fa fa-btc"></i>{{ plan.min_deposit }}</h3>
+                <span>{% trans "minimum deposit" %}</span>
+              </li>
+              <li>
+                <a href="{% url 'invest' plan=plan.name %}" class="button">{% trans "Invest Now" %}</a>
+              </li>
+            </ul>
+          </div>
+        {% endfor %}
         </div>
       </div>
     </div>

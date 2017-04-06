@@ -6,14 +6,15 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 from accounts.forms import SignInForm, PswdResetForm, SetPswdForm
-from accounts import views
+from accounts import views as accounts_views
+from core import views as core_views
 
 urlpatterns = [
-    url(r'^$', views.HomePageView.as_view(), name='home'),
+    url(r'^$', accounts_views.HomePageView.as_view(), name='home'),
 ]
 
 urlpatterns = urlpatterns + [
-    url(r'^signup$', views.signup, name='signup'),
+    url(r'^signup$', accounts_views.signup, name='signup'),
     url(r'^signin$', auth_views.login,
       {
         'template_name': 'accounts/signin.html',
@@ -39,6 +40,7 @@ urlpatterns = urlpatterns + [
       {
         'template_name': 'accounts/password_reset_complete.html'
       }, name='password_reset_complete'),
+    url(r'^invest/(?P<plan>\w+)$', core_views.invest, name='invest'),
 ]
 
 urlpatterns = urlpatterns + [

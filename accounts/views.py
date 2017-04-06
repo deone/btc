@@ -3,12 +3,19 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth import authenticate, login
 
 from .forms import CreateAccountForm
+from core.models import Plan
 
 class HomePageView(TemplateView):
 
+    def get_context_data(self, **kwargs):
+        context = super(HomePageView, self).get_context_data(**kwargs)
+        context['plans'] = Plan.objects.all()
+        return context
+
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
-            return render(request, 'accounts/index.html')
+            context = self.get_context_data(**kwargs)
+            return render(request, 'accounts/index.html', context)
 
         return render(request, 'index.html')
 
