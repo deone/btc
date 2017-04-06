@@ -40,6 +40,7 @@ urlpatterns = urlpatterns + [
       {
         'template_name': 'accounts/password_reset_complete.html'
       }, name='password_reset_complete'),
+    url(r'^plans$', core_views.PlanListView.as_view(), name='plans'),
     url(r'^invest/(?P<plan>\w+)$', core_views.InvestView.as_view(), name='invest'),
 ]
 
