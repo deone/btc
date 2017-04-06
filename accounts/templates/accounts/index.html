@@ -2,6 +2,8 @@
 
 {% load i18n static %}
 
+{% block pagetitle %}Investment Plans{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -42,6 +44,7 @@
 
 {% block app %}
 <section class="section"></section>
+{% block content %}
 <section class="section">
   <div class="section-title">
     <div class="container">
@@ -76,6 +79,7 @@
     </div>
   </div>
 </section>
+{% endblock %}
 {% endblock %}
 
 {% block extra_js %}

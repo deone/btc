@@ -132,7 +132,7 @@ STATIC_URL = '/static/'
 
 
 # My Settings
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),

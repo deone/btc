@@ -21,7 +21,8 @@ form {
 
 form input[type="text"],
 form input[type="password"],
-form input[type="email"] {
+form input[type="email"],
+form input[type="number"] {
     height: 60px;
     font-size: 14px;
     letter-spacing: 0.04em;
