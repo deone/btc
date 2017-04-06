@@ -15,6 +15,8 @@ class HomePageView(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
             context = self.get_context_data(**kwargs)
+            if not context['investments']:
+                return redirect('plans')
             return render(request, 'core/investment_list.html', context)
 
         return render(request, 'index.html')
