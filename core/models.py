@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Plan(models.Model):
     name = models.CharField(max_length=25)
-    min_deposit = models.DecimalField(max_digits=4, decimal_places=1)
+    min_deposit = models.DecimalField(max_digits=4, decimal_places=2)
     period = models.IntegerField()
     percentage_return = models.IntegerField()
 
