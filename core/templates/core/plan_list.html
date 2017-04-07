@@ -57,8 +57,8 @@
     <div class="row">
       <div class="block">
         {% for plan in plans %}
-          <div class="col-md-8">
-            <ul class="pricing {% ifequal plan.name 'starter' %}p-green{% endifequal %} {% ifequal plan.name 'deluxe' %}p-yel{% endifequal %} {% ifequal plan.name 'vip' %}p-red{% endifequal %}">
+          <div class="col-md-6">
+            <ul class="pricing {% ifequal plan.name 'starter' %}p-green{% endifequal %} {% ifequal plan.name 'classic' %}p-blue{% endifequal %} {% ifequal plan.name 'deluxe' %}p-yel{% endifequal %} {% ifequal plan.name 'vip' %}p-red{% endifequal %}">
               <li>
                 <big {% ifequal plan.name 'vip' %}style="text-transform: uppercase"{% endifequal %}>{{ plan.name }}</big>
               </li>
@@ -66,7 +66,7 @@
               <li>{% trans "Total Returns - " %}<strong>{{ plan.percentage_return }}%</strong></li>
               <li>
                 <h3><i class="fa fa-btc"></i>{{ plan.min_deposit }}</h3>
-                <span>{% trans "minimum deposit" %}</span>
+                <span>{% trans "deposit" %}</span>
               </li>
               <li>
                 <a href="{% url 'invest' plan=plan.name %}" class="button">{% trans "Invest Now" %}</a>
