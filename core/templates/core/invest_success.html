@@ -1,0 +1,20 @@
+{% extends 'core/investment_list.html' %}
+
+{% load i18n static %}
+
+{% block content %}
+<section class="section">
+  <div class="section-title">
+    <div class="container">
+      <h2 class="title">{% trans "SUCCESS" %}</h2>
+      <p class="sub-title">{% trans "Congratulations!" %}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      {{ investment }}
+    </div>
+  </div>
+</section>
+{% endblock %}
