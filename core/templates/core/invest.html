@@ -6,13 +6,14 @@
 <section class="section">
   <div class="section-title">
     <div class="container">
-      <h2 class="title">{% trans "Our Investment Plans" %}</h2>
+      <h2 class="title">{% trans view.plan.name %} {% trans "plan" %}</h2>
       <p class="sub-title">{% trans "Choose the plan that's best for you!" %}</p>
     </div>
   </div>
 
   <div class="container">
     {{ form.as_p }}
+    {{ view.plan }}
   </div>
 </div>
 {% endblock %}
