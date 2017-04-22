@@ -7,13 +7,18 @@
   <div class="section-title">
     <div class="container">
       <h2 class="title">{% trans view.plan.name %} {% trans "plan" %}</h2>
-      <p class="sub-title">{% trans "Choose the plan that's best for you!" %}</p>
     </div>
   </div>
 
   <div class="container">
-    {{ form.as_p }}
-    {{ view.plan }}
+    <form method="post">
+      <div class="form-group">
+        {% csrf_token %}
+        {{ form.amount.label_tag }}
+        {{ form.amount }}
+      </div>
+      <input type="submit" class="btn btn-special no-icon" value="{% trans 'Submit' %}">
+    </form>
   </div>
 </div>
 {% endblock %}

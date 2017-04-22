@@ -12,3 +12,4 @@ class InvestmentForm(forms.ModelForm):
         self.plan = kwargs.pop('plan')
         super(InvestmentForm, self).__init__(*args, **kwargs)
         self.fields['amount'].initial = self.plan.deposit
+        self.fields['amount'].widget = forms.TextInput(attrs={'class': 'form-control', 'readonly': True})
