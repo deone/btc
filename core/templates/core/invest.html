@@ -12,11 +12,18 @@
 
   <div class="container">
     <form method="post">
+
+      {% csrf_token %}
+
+      {{ form.user }}
+
+      {{ form.plan }}
+
       <div class="form-group">
-        {% csrf_token %}
         {{ form.amount.label_tag }}
         {{ form.amount }}
       </div>
+
       <input type="submit" class="btn btn-special no-icon" value="{% trans 'Submit' %}">
     </form>
   </div>

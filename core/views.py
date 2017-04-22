@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.urls import reverse
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
 
@@ -17,10 +18,14 @@ class InvestView(FormView):
         return self.plan
 
     def get_form_kwargs(self):
-        plan_name = self.kwargs['plan_name']
-        self.plan = Plan.objects.get(name=plan_name)
+        self.plan_name = self.kwargs['plan_name']
+        self.plan = Plan.objects.get(name=self.plan_name)
 
         kwargs = super(InvestView, self).get_form_kwargs()
         kwargs['plan'] = self.plan
         kwargs['user'] = self.request.user
         return kwargs
+
+    def form_valid(self, form):
+        form.save()
+        return redirect(reverse('invest', kwargs={'plan_name': self.plan_name}))
