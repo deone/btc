@@ -16,7 +16,6 @@ class Plan(models.Model):
 class Investment(models.Model):
     user = models.ForeignKey(User)
     plan = models.ForeignKey(Plan)
-    amount = models.DecimalField(max_digits=5, decimal_places=2)
     time_created = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=False)
 
