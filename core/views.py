@@ -28,4 +28,4 @@ class InvestView(FormView):
 
     def form_valid(self, form):
         form.save()
-        return redirect(reverse('invest', kwargs={'plan_name': self.plan_name}))
+        return redirect(reverse('home'))
