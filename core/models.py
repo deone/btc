@@ -16,7 +16,7 @@ class Plan(models.Model):
 class Investment(models.Model):
     user = models.ForeignKey(User)
     plan = models.ForeignKey(Plan)
-    time_created = models.DateTimeField(default=timezone.now)
+    date_created = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
@@ -25,7 +25,7 @@ class Investment(models.Model):
 class Return(models.Model):
     investment = models.ForeignKey(Investment)
     amount = models.DecimalField(max_digits=5, decimal_places=2)
-    time_created = models.DateTimeField(default=timezone.now)
+    date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return '%s %s' % (self.investment.user.get_full_name(), str(self.amount))
